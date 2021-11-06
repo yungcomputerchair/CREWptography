@@ -1,18 +1,19 @@
-//import _sodium from 'libsodium-wrappers'
-//await _sodium.ready
-//const sodium = _sodium
-
-let sodium
-
-window.receiveSodium = async x => {
-    await x.ready
-    sodium = x
-}
+import _sodium from 'libsodium-wrappers'
+let sodium = null
 
 let yourkeypair = null
 let crewmatepub = null
 
-export function generate_keypair() {
+async function load_sodium() {
+    if (sodium == null) {
+        await _sodium.ready
+        sodium = _sodium
+    }
+}
+
+export async function generate_keypair() {
+    await load_sodium()
+
     if (sodium.crypto_box_PUBLICKEYBYTES != 32) {
         throw new Error("CryptSCII is incompatible with this version of sodium.")
     }
@@ -20,22 +21,24 @@ export function generate_keypair() {
     let publichex = sodium.to_hex(yourkeypair.publicKey)
     let i = 0
     let amongus = 
-`     XXXXXXXXXX
-    X          X
-   XXXXXXX      X
-  X       X     XXX
-  X       X     X  X
-   XXXXXXX      X  X
-   X            X  X
-   X     XX     X  X
-   X    X  X    XXX
-   X    X  X    X
-    XXXX    XXXX`.replaceAll('X', () => publichex[i++])
+`   XXXXXXXXXX
+  X          X
+ XXXXXXX      X
+X       X     XXX
+X       X     X  X
+ XXXXXXX      X  X
+ X            X  X
+ X     XX     X  X
+ X    X  X    XXX
+ X    X  X    X
+  XXXX    XXXX`.replaceAll('X', () => publichex[i++])
     return amongus
 }
 
-export function set_crewmatepub(crewmate) {
+export async function set_crewmatepub(crewmate) {
     // crewmate: String
+
+    await load_sodium()
 
     let cr = sodium.from_hex(crewmate.toLowerCase().replace(/[^a-f0-9]/g, ''))
     if (cr.length != sodium.crypto_box_PUBLICKEYBYTES) {
@@ -44,8 +47,10 @@ export function set_crewmatepub(crewmate) {
     crewmatepub = cr
 }
 
-export function encrypt_comms(msg) {
+export async function encrypt_comms(msg) {
     // msg: String
+
+    await load_sodium()
 
     if (yourkeypair == null) {
         throw new Error("No keypair!")
@@ -58,8 +63,10 @@ export function encrypt_comms(msg) {
     return sodium.to_base64(new Uint8Array([ ...n, ...m ]))
 }
 
-export function decrypt_comms(msg) {
+export async function decrypt_comms(msg) {
     // msg: String
+
+    await load_sodium()
 
     if (yourkeypair == null) {
         throw new Error("No keypair!")

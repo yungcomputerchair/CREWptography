@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron www/main.js",
+    "build": "esbuild index.mjs --bundle --outdir=www --minify --sourcemap --format=iife --platform=browser"
   },
   "repository": {
     "type": "git",
@@ -25,9 +26,11 @@
   "homepage": "https://github.com/gsemaj/cryptSCII#readme",
   "devDependencies": {
     "@electron/remote": "^2.0.1",
-    "electron": "^15.3.0"
+    "electron": "^15.3.0",
+    "esbuild": "^0.13.12"
   },
   "dependencies": {
-    "libsodium-wrappers": "^0.7.9"
+    "libsodium-wrappers": "^0.7.9",
+    "path-browserify": "^1.0.1"
   }
 }

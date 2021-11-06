@@ -1,5 +1,3 @@
-require('@electron/remote/main').initialize()
-
 import {
     generate_keypair,
     set_crewmatepub,
@@ -7,7 +5,9 @@ import {
     decrypt_comms
 } from './crypto.mjs'
 
-document.getElementById('generateButton').addEventListener('click', () => {
-    let amongus = generate_keypair()
-    document.querySelector('#yourself textarea').textContent = amongus
+window.document.getElementById('generateButton').addEventListener('click', async e => {
+    e.preventDefault()
+
+    let amongus = await generate_keypair()
+    window.document.querySelector('#yourself textarea').textContent = amongus
 })
