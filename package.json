@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron www/main.js",
+    "start-web": "npm run build && serve www",
     "build": "esbuild index.mjs --bundle --outdir=www --minify --sourcemap --format=iife --platform=browser"
   },
   "repository": {
@@ -27,7 +28,8 @@
   "devDependencies": {
     "@electron/remote": "^2.0.1",
     "electron": "^15.3.0",
-    "esbuild": "^0.13.12"
+    "esbuild": "^0.13.12",
+    "serve": "^13.0.2"
   },
   "dependencies": {
     "libsodium-wrappers": "^0.7.9",
