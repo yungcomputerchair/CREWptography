@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "electron ."
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
   "homepage": "https://github.com/gsemaj/cryptSCII#readme",
   "devDependencies": {
     "electron": "^15.3.0"
+  },
+  "dependencies": {
+    "libsodium-wrappers": "^0.7.9"
   }
 }
