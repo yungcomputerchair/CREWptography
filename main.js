@@ -16,9 +16,13 @@ function createWindow () {
 
   win.loadFile('index.html')
 
-  ipcMain.on("toMain", (event, args) => {
-    console.log("got " + args);
-    win.webContents.send("fromMain", crypto.generate_keypair());
+  ipcMain.on("toMain", (event, token, name, args) => {
+    try {
+      let result = crypto[name](...args)
+      win.webContents.send("fromMain", token, null, result);
+    } catch (err) {
+      win.webContents.send("fromMain", token, err)
+    }
   });
 }
 
