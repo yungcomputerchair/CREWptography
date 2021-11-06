@@ -5,12 +5,34 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <title>CRYPTSCII</title>
   </head>
+  <style>
+  .button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .generateButton {background-color: #4CAF50;} /* Green */
+  .confirmButton {background-color: #008CBA;} /* Blue */
+  .sendButton {background-color: #4CAF50;} /* Green */
+  .receiveButton {background-color: #008CBA;} /* Blue */
+
+  </style>
   <body>
-    <h1>Hello World!</h1>
+    <!-- This is a comment -->
+    <h1 style="text-align:center">CryptSCII</h1>
     We are using Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>.
+    <p>Description here</p>
+    <button class="button generateButton">Green</button>
+    <button class="button confirmButton">Blue</button>
   </body>
 </html>
