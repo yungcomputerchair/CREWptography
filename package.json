@@ -27,6 +27,7 @@
     "electron": "^15.3.0"
   },
   "dependencies": {
+    "@electron/remote": "^2.0.1",
     "libsodium-wrappers": "^0.7.9"
   }
 }
