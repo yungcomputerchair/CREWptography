@@ -1,16 +1,107 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CRYPTSCII</title>
+  <style>
+    button {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 6px 3px;
+      cursor: pointer;
+    }
+
+    .generateButton {
+      background-color: #4CAF50;
+    }
+
+    /* Green */
+    .confirmButton {
+      background-color: #008CBA;
+    }
+
+    /* Blue */
+    .receiveButton {
+      background-color: #008CBA;
+    }
+
+    /* Bl */
+    .sendButton {
+      background-color: #4CAF50;
+    }
+
+    #crewmate textarea, #yourself textarea {
+      font-family: monospace;
+      color: rgb(153, 0, 0);
+      resize: none;
+      overflow: hidden;
+    }
+
+    #keys, #msg {
+      display: flex;
+      flex-direction: row;
+    }
+    
+    #keys > form, #msg > div {
+      flex: 1;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+
+<body>
+  <!-- This is a comment for the Description. Make a description of what this is, what it does, how it works, etc; -->
+  <h1 style="text-align:center">CryptSCII</h1>
+  We are using Node.js <span id="node-version"></span>,
+  Chromium <span id="chrome-version"></span>,
+  and Electron <span id="electron-version"></span>.
+  <p>Description here</p>
+
+  <div id="keys">
+    <form id="yourself">
+      <textarea rows="11" cols="18" readonly></textarea><br>
+      <button class="generateButton">Generate a crewmate</button>
+    </form>
+    <form id="crewmate">
+      <label>
+        Enter the other crewmate:<br>
+        <textarea rows="11" cols="18" spellcheck="false" wrap="hard"></textarea>
+      </label><br>
+      <button class="confirmButton">This is the other Crewmate</button>
+    </form>
+  </div>
+
+  <div id="msg">
+    <div>
+      <label>
+        Enter a message to send:<br>
+        <textarea id="sendinput"></textarea>
+      </label><br>
+      <button class="sendButton">Send an Emergency message to your Crewmate</button><br>
+      <label>
+        Encrypted message:<br>
+        <textarea id="sendoutput" readonly></textarea>
+      </label>
+    </div>
+    <div>
+      <label>
+        Enter an encrypted message to receive:<br>
+        <textarea id="recvinput"></textarea>
+      </label><br>
+      <button class="receiveButton">Recieve an Emergency message</button><br>
+      <label>
+        Decrypted message:<br>
+        <textarea id="recvoutput" readonly></textarea>
+      </label>
+    </div>
+  </div>
+</body>
+
 </html>
