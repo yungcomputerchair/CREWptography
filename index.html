@@ -10,27 +10,37 @@
       src: url('AmaticSC-Bold.ttf');
     }
 
+    html, body {
+      height: 100%;
+    }
+
     body {
       margin: 0;
       background-image: url("https://i.redd.it/2obw9yylddr51.jpg");
       background-size: contain;
       color: #fff;
+      display: grid;
+      grid-template-areas:
+        "hd hd"
+        "you other"
+        "send recv";
+      grid-template-rows: min-content auto auto;
+      grid-template-columns: 1fr 1fr;
     }
 
-    body > h1 {
+    header h1 {
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 30pt;
     }
 
-    body > h1 span {
+    header span {
       font-family: 'Amatic SC';
       font-size: 72pt;
     }
 
     button {
-      border: none;
       color: white;
       font-family: 'Amatic SC';
       font-size: 30pt;
@@ -63,30 +73,59 @@
     }
     */
 
-    #crewmate textarea, #yourself textarea {
+    #crewmate textarea,
+    #yourself textarea {
       font-family: monospace;
-      color: rgb(0, 0, 255);
       resize: none;
       overflow: hidden;
     }
 
-    #keys, #msg {
-      display: flex;
-      flex-direction: row;
-      padding: 0;
-    }
-    
-    #keys > form, #msg > div {
+    #yourself, #crewmate, #send, #recv {
       flex: 1;
-      border: 1px solid #008CBA;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     #error {
       color: #f00;
+      height: 1ch;
     }
 
-    label > span {
+    label>span {
       background: #000;
+    }
+
+    textarea:not([readonly]) {
+      background: #114c57;
+      color: #ef7d0d;
+    }
+
+    textarea[readonly] {
+      background-color: rgb(3, 3, 148);
+      color: rgb(224, 224, 0);
+    }
+
+    header {
+      grid-area: hd;
+    }
+
+    #yourself {
+      grid-area: you;
+    }
+
+    #crewmate {
+      grid-area: other;
+    }
+
+    #send {
+      grid-area: send;
+    }
+
+    #recv {
+      grid-area: recv;
     }
   </style>
 </head>
@@ -94,49 +133,50 @@
 
 <body>
   <!-- This is a comment for the Description. Make a description of what this is, what it does, how it works, etc; -->
-  <h1 style="text-align:center">ඞ&nbsp;<span>CREWptography</span>&nbsp;ඞ</h1>
-  <div id="error"></div>
+  <header>
+    <h1>ඞ&nbsp;<span>CREWptography</span>&nbsp;ඞ</h1>
+    <div id="error"></div>
+  </header>
 
-  <div style="text-align:center" id="keys">
-    <form id="yourself">
-      <label>
-        <span>Your crewmate:</span><br>
-        <textarea rows="11" cols="16" readonly></textarea>
-      </label><br>
-      <button id="generateButton">Generate a crewmate</button>
-    </form>
-    <form id="crewmate">
-      <label>
-        <span>Enter the other crewmate:</span><br>
-        <textarea rows="11" cols="16" spellcheck="false" wrap="hard"></textarea>
-      </label><br>
-      <button id="confirmButton">This is the other Crewmate</button>
-    </form>
+
+  <form id="yourself">
+    <label>
+      <span>Your crewmate:</span><br>
+      <textarea rows="11" cols="16" readonly></textarea>
+    </label><br>
+    <button id="generateButton">Generate a crewmate</button>
+  </form>
+
+  <form id="crewmate">
+    <label>
+      <span>Enter the other crewmate:</span><br>
+      <textarea rows="11" cols="16" spellcheck="false" wrap="hard"></textarea>
+    </label><br>
+    <button id="confirmButton">This is the other Crewmate</button>
+  </form>
+
+  <div id="send">
+    <label>
+      <span>Enter a message to send:</span><br>
+      <textarea id="sendinput"></textarea>
+    </label><br>
+    <button id="sendButton">Send an Emergency message to the other Crewmate</button><br>
+    <label>
+      Encrypted message:<br>
+      <textarea id="sendoutput" readonly></textarea>
+    </label>
   </div>
 
-  <div style="text-align:center" id="msg">
-    <div style="padding-top: 15px; text-align:center">
-      <label>
-        <span>Enter a message to send:</span><br>
-        <textarea id="sendinput"></textarea>
-      </label><br>
-      <button id="sendButton">Send an Emergency message to the other Crewmate</button><br>
-      <label>
-        Encrypted message:<br>
-        <textarea id="sendoutput" readonly></textarea>
-      </label>
-    </div>
-    <div style="padding-top: 15px; text-align:center">
-      <label>
-        <span>Enter an encrypted message to receive:</span><br>
-        <textarea id="recvinput"></textarea>
-      </label><br>
-      <button id="receiveButton">Recieve an Emergency message</button><br>
-      <label>
-        <span>Decrypted message:</span><br>
-        <textarea id="recvoutput" readonly></textarea>
-      </label>
-    </div>
+  <div id="recv">
+    <label>
+      <span>Enter an encrypted message to receive:</span><br>
+      <textarea id="recvinput"></textarea>
+    </label><br>
+    <button id="receiveButton">Recieve an Emergency message</button><br>
+    <label>
+      <span>Decrypted message:</span><br>
+      <textarea id="recvoutput" readonly></textarea>
+    </label>
   </div>
 
   <script src="client.js"></script>
