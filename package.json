@@ -1,0 +1,25 @@
+{
+  "name": "cryptscii",
+  "version": "0.1.0",
+  "description": "ASCII art cryptography app for HackOHI/O",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsemaj/cryptSCII.git"
+  },
+  "keywords": [
+    "ascii",
+    "art",
+    "cryptography",
+    "hackohio"
+  ],
+  "author": "gsemaj, robbie01, Bouie782, ButtonBill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gsemaj/cryptSCII/issues"
+  },
+  "homepage": "https://github.com/gsemaj/cryptSCII#readme"
+}
