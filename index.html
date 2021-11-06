@@ -5,44 +5,67 @@
   <meta charset="UTF-8">
   <title>CRYPTSCII</title>
   <style>
+    @font-face {
+      font-family: 'Amatic SC';
+      src: url('AmaticSC-Bold.ttf');
+    }
+
     body {
       margin: 0;
+      background-image: url("https://i.redd.it/2obw9yylddr51.jpg");
+      background-size: contain;
+      color: #fff;
+    }
+
+    body > h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30pt;
+    }
+
+    body > h1 span {
+      font-family: 'Amatic SC';
+      font-size: 72pt;
     }
 
     button {
       border: none;
       color: white;
-      padding: 15px 32px;
+      font-family: 'Amatic SC';
+      font-size: 30pt;
+      padding: 8px 16px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
-      font-size: 16px;
       margin: 6px 3px;
       cursor: pointer;
+      border: 3px solid white;
+      background-color: black;
+      border-radius: 10px;
     }
 
+    /*
     #generateButton {
       background-color: #4CAF50;
     }
 
-    /* Green */
     #confirmButton {
       background-color: #008CBA;
     }
 
-    /* Blue */
     #receiveButton {
       background-color: #008CBA;
     }
 
-    /* Bl */
     #sendButton {
       background-color: #4CAF50;
     }
+    */
 
     #crewmate textarea, #yourself textarea {
       font-family: monospace;
-      color: rgb(153, 0, 0);
+      color: rgb(0, 0, 255);
       resize: none;
       overflow: hidden;
     }
@@ -55,32 +78,36 @@
     
     #keys > form, #msg > div {
       flex: 1;
-      border: 1px solid black;
+      border: 1px solid #008CBA;
     }
 
     #error {
       color: #f00;
     }
+
+    label > span {
+      background: #000;
+    }
   </style>
 </head>
 
 
-<body style="background-color:lightblue;">
+<body>
   <!-- This is a comment for the Description. Make a description of what this is, what it does, how it works, etc; -->
-  <h1 style="text-align:center">ඞ CREWptography ඞ</h1>
+  <h1 style="text-align:center">ඞ&nbsp;<span>CREWptography</span>&nbsp;ඞ</h1>
   <div id="error"></div>
 
   <div style="text-align:center" id="keys">
     <form id="yourself">
       <label>
-        Your crewmate:<br>
+        <span>Your crewmate:</span><br>
         <textarea rows="11" cols="16" readonly></textarea>
       </label><br>
       <button id="generateButton">Generate a crewmate</button>
     </form>
     <form id="crewmate">
       <label>
-        Enter the other crewmate:<br>
+        <span>Enter the other crewmate:</span><br>
         <textarea rows="11" cols="16" spellcheck="false" wrap="hard"></textarea>
       </label><br>
       <button id="confirmButton">This is the other Crewmate</button>
@@ -90,7 +117,7 @@
   <div style="text-align:center" id="msg">
     <div style="padding-top: 15px; text-align:center">
       <label>
-        Enter a message to send:<br>
+        <span>Enter a message to send:</span><br>
         <textarea id="sendinput"></textarea>
       </label><br>
       <button id="sendButton">Send an Emergency message to the other Crewmate</button><br>
@@ -101,12 +128,12 @@
     </div>
     <div style="padding-top: 15px; text-align:center">
       <label>
-        Enter an encrypted message to receive:<br>
+        <span>Enter an encrypted message to receive:</span><br>
         <textarea id="recvinput"></textarea>
       </label><br>
       <button id="receiveButton">Recieve an Emergency message</button><br>
       <label>
-        Decrypted message:<br>
+        <span>Decrypted message:</span><br>
         <textarea id="recvoutput" readonly></textarea>
       </label>
     </div>
