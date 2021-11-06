@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron www/main.js",
     "start-web": "npm run build && serve www",
-    "build": "esbuild index.mjs --bundle --outdir=www --minify --sourcemap --format=iife --platform=browser"
+    "build": "esbuild index.mjs --bundle --outdir=www --minify --sourcemap --format=esm --platform=browser"
   },
   "repository": {
     "type": "git",
