@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/gsemaj/cryptSCII#readme",
   "devDependencies": {
+    "@electron/remote": "^2.0.1",
     "electron": "^15.3.0"
   },
   "dependencies": {

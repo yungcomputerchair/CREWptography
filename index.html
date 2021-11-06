@@ -17,22 +17,22 @@
       cursor: pointer;
     }
 
-    .generateButton {
+    #generateButton {
       background-color: #4CAF50;
     }
 
     /* Green */
-    .confirmButton {
+    #confirmButton {
       background-color: #008CBA;
     }
 
     /* Blue */
-    .receiveButton {
+    #receiveButton {
       background-color: #008CBA;
     }
 
     /* Bl */
-    .sendButton {
+    #sendButton {
       background-color: #4CAF50;
     }
 
@@ -67,14 +67,14 @@
   <div id="keys">
     <form id="yourself">
       <textarea rows="11" cols="18" readonly></textarea><br>
-      <button class="generateButton">Generate a crewmate</button>
+      <button id="generateButton">Generate a crewmate</button>
     </form>
     <form id="crewmate">
       <label>
         Enter the other crewmate:<br>
         <textarea rows="11" cols="18" spellcheck="false" wrap="hard"></textarea>
       </label><br>
-      <button class="confirmButton">This is the other Crewmate</button>
+      <button id="confirmButton">This is the other Crewmate</button>
     </form>
   </div>
 
@@ -84,7 +84,7 @@
         Enter a message to send:<br>
         <textarea id="sendinput"></textarea>
       </label><br>
-      <button class="sendButton">Send an Emergency message to your Crewmate</button><br>
+      <button id="sendButton">Send an Emergency message to your Crewmate</button><br>
       <label>
         Encrypted message:<br>
         <textarea id="sendoutput" readonly></textarea>
@@ -95,13 +95,15 @@
         Enter an encrypted message to receive:<br>
         <textarea id="recvinput"></textarea>
       </label><br>
-      <button class="receiveButton">Recieve an Emergency message</button><br>
+      <button id="receiveButton">Recieve an Emergency message</button><br>
       <label>
         Decrypted message:<br>
         <textarea id="recvoutput" readonly></textarea>
       </label>
     </div>
   </div>
+
+  <script src="index.mjs" type="module"></script>
 </body>
 
 </html>

@@ -1,6 +1,13 @@
-import _sodium from 'libsodium-wrappers'
-await _sodium.ready
-const sodium = _sodium
+//import _sodium from 'libsodium-wrappers'
+//await _sodium.ready
+//const sodium = _sodium
+
+let sodium
+
+window.receiveSodium = async x => {
+    await x.ready
+    sodium = x
+}
 
 let yourkeypair = null
 let crewmatepub = null
