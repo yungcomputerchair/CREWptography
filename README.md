@@ -1,5 +1,6 @@
 # CREWptography
 Ever been worried about an impostor snooping on your comms? Fear no more, as with CREWptography you and another crewmate are able to securely encrypt your messages and fix the comms sabotage. 
+![Screenshot](crewptography.png)
 
 ## Description
 This is CREWptography, "We couldn't think of a team name."'s HackOHI/O 2021 project.
