@@ -1,11 +1,13 @@
 {
-  "name": "cryptscii",
+  "name": "CREWptography",
   "version": "0.1.0",
   "description": "ASCII art cryptography app for HackOHI/O",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -24,10 +26,14 @@
   },
   "homepage": "https://github.com/gsemaj/cryptSCII#readme",
   "devDependencies": {
-    "electron": "^15.3.0"
+    "electron": "^15.3.0",
+	"electron-builder": "^22.13.1"
   },
   "dependencies": {
     "@electron/remote": "^2.0.1",
     "libsodium-wrappers": "^0.7.9"
+  },
+  "build": {
+    "appId": "CREWptography"
   }
 }
