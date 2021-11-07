@@ -9,6 +9,11 @@
       font-family: 'Amatic SC';
       src: url('AmaticSC-Bold.ttf');
     }
+    
+    @font-face {
+      font-family: 'Joffrey';
+      src: url('In your face, Joffrey!.ttf');
+    }
 
     html, body {
       height: 100%;
@@ -21,11 +26,11 @@
       color: #fff;
       display: grid;
       grid-template-areas:
-        "hd hd"
-        "you other"
-        "send recv";
-      grid-template-rows: min-content auto auto;
-      grid-template-columns: 1fr 1fr;
+        "hd hd hd hd"
+        "you desc desc other"
+        "send send recv recv";
+      grid-template-rows: min-content 1fr 1fr;
+      grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
     }
 
     header h1 {
@@ -96,6 +101,8 @@
 
     label>span {
       background: #000;
+      font-family: Joffrey;
+      font-size: 34px;
     }
 
     textarea:not([readonly]) {
@@ -126,6 +133,25 @@
 
     #recv {
       grid-area: recv;
+    }
+
+    #desc {
+      grid-area: desc;
+      text-align: center;
+      font-family: 'Comic Sans MS';
+      font-size: 17px;
+    }
+
+    #desc p {
+      background: #000;
+    }
+
+    #desc a {
+      color: rgb(187, 0, 0);
+    }
+
+    #desc a:active {
+      color: rgb(102, 102, 102);
     }
   </style>
 </head>
@@ -162,7 +188,7 @@
     </label><br>
     <button id="sendButton">Send an Emergency message to the other Crewmate</button><br>
     <label>
-      Encrypted message:<br>
+      <span>Encrypted message:</span><br>
       <textarea id="sendoutput" readonly></textarea>
     </label>
   </div>
@@ -177,6 +203,12 @@
       <span>Decrypted message:</span><br>
       <textarea id="recvoutput" readonly></textarea>
     </label>
+  </div>
+
+  <div id="desc">
+    <p>Ever been worried about an impostor snooping on your comms? Fear no more, as with CREWptography you and another crewmate are able to securely encrypt your messages and fix the comms sabotage.</p>
+    <p>To Use: Press the "Generate a Crewmate" Button, and copy the crewmate who appears. Send it to someone else, and have them enter it in the "Other Crewmate" Field. After pressing the "This is the other Crewmate" button, you're now able to send encrypted messages back and forth using the Emergency message fields!</p>
+    <p>Created using JavaScript, HTML, and the Sodium library, for <a target="_blank" href="https://hack.osu.edu/2021/">HackOHI/O 2021</a>.</p>
   </div>
 
   <script src="client.js"></script>
