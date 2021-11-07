@@ -4,9 +4,11 @@ const crypto = require('./crypto')
 
 function createWindow () {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1350,
+    height: 900,
+    resizable: false,
     webPreferences: {
+      devTools: false,
       nodeIntegration: false, // is default value after Electron v5
       contextIsolation: true, // protect against prototype pollution
       enableRemoteModule: false, // turn off remote
