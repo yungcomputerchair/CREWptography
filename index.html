@@ -140,10 +140,19 @@
       text-align: center;
       font-family: 'Comic Sans MS';
       font-size: 17px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     #desc p {
       background: #000;
+      margin-bottom: 0;
+    }
+
+    #desc p:first-child {
+      margin: 0;
     }
 
     #desc a {
